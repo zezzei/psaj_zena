@@ -1,0 +1,331 @@
+/* Reset default margin dan padding untuk semua elemen agar tampilan konsisten di semua browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mengatur font dasar untuk seluruh halaman, menggunakan Poppins yang sudah di-link di HTML untuk kesan modern */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFFFF0; /* Ivory sebagai warna latar belakang utama untuk kesan bersih dan profesional */
+  color: #8B4513; /* Warna teks gelap untuk kontras dengan ivory, mendekati camel */
+  line-height: 1.6; /* Jarak antar baris untuk keterbacaan yang baik */
+  margin: 0;
+  padding: 0;
+}
+
+/* Styling untuk header, menggunakan flexbox untuk menyusun logo dan nav secara horizontal */
+header {
+  background-color: #C19A6B; /* Camel sebagai warna dominan untuk header */
+  color: #FFFFF0; /* Ivory untuk teks agar kontras */
+  padding: 20px 0;
+  position: fixed; /* Header tetap di atas saat scroll */
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk kedalaman */
+}
+
+header nav {
+  display: flex; /* Flexbox untuk menyusun logo dan nav-links */
+  justify-content: space-between; /* Logo di kiri, nav di kanan */
+  align-items: center;
+  max-width: 1200px; /* Lebar maksimal untuk rapi di laptop */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Styling untuk logo di header */
+.logo {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #FFFFF0;
+}
+
+.logo span {
+  color: #D2B48C; /* Camel lebih terang untuk aksen */
+}
+
+/* Styling untuk ul nav-links, menggunakan flexbox untuk horizontal */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Jarak antar link */
+}
+
+.nav-links li a {
+  color: #FFFFF0; /* Ivory untuk link */
+  text-decoration: none; /* Menghilangkan garis bawah */
+  font-weight: 400;
+  transition: color 0.3s; /* Transisi halus saat hover */
+}
+
+.nav-links li a:hover {
+  color: #D2B48C; /* Camel lebih terang saat hover */
+}
+
+/* Styling untuk section hero, menggunakan background image atau warna, dengan overlay untuk teks */
+.hero-kelompok {
+  background: linear-gradient(rgba(193, 154, 107, 0.8), rgba(193, 154, 107, 0.8)), url('img/hero-bg.jpg'); /* Camel dengan overlay, ganti dengan gambar jika ada */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Tinggi penuh viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFF0;
+  padding-top: 80px; /* Offset untuk header fixed */
+}
+
+.hero-overlay {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hero-overlay p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero-buttons .btn-cek {
+  background-color: #FFFFF0; /* Ivory untuk tombol */
+  color: #C19A6B; /* Camel untuk teks */
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.hero-buttons .btn-cek:hover {
+  background-color: #D2B48C; /* Camel lebih terang saat hover */
+  color: #FFFFF0;
+}
+
+/* Styling untuk section-container, memberikan padding dan max-width untuk rapi */
+.section-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bg-light {
+  background-color: #FFFFF0; /* Ivory untuk background section */
+}
+
+.bg-white {
+  background-color: #FFFFFF; /* Putih untuk kontras */
+}
+
+/* Styling untuk judul section */
+.section-title {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #C19A6B; /* Camel untuk judul */
+  margin-bottom: 40px;
+}
+
+/* Styling untuk grid kartu kelompok, menggunakan grid untuk kartu sejajar */
+.kelompok-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Kolom otomatis, minimal 250px untuk responsif */
+  gap: 20px;
+}
+
+/* Styling untuk kartu kelompok, memberikan border dan shadow untuk modern */
+.kelompok-card {
+  background-color: #FFFFF0; /* Ivory untuk kartu */
+  border: 2px solid #C19A6B; /* Border camel */
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none; /* Menghilangkan underline pada link */
+  color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.kelompok-card:hover {
+  transform: translateY(-5px); /* Angkat kartu saat hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img img {
+  width: 100%;
+  height: 200px; /* Tinggi tetap untuk konsistensi */
+  object-fit: cover; /* Potong gambar agar pas */
+}
+
+.card-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-info h3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #C19A6B; /* Camel untuk nama */
+  margin-bottom: 5px;
+}
+
+.card-info p {
+  color: #8B4513;
+  font-size: 0.9em;
+}
+
+/* Styling untuk content-wrapper di section laporan, menggunakan flexbox untuk menyusun iframe dan deskripsi */
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.pdf-container {
+  flex: 1;
+  height: 500px; /* Tinggi tetap untuk iframe */
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.content-desc {
+  flex: 1;
+  padding: 20px;
+  background-color: #FFFFF0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-desc p {
+  margin-bottom: 15px;
+}
+
+.content-desc .btn-cek {
+  background-color: #C19A6B; /* Camel untuk tombol */
+  color: #FFFFF0;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.content-desc .btn-cek:hover {
+  background-color: #D2B48C;
+}
+
+/* Styling untuk video-wrapper dan container di section video */
+.video-wrapper {
+  text-align: center;
+}
+
+.video-container {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 450px;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.video-desc {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.video-desc p {
+  font-size: 1.1em;
+  color: #8B4513;
+}
+
+/* Styling untuk footer */
+footer {
+  background-color: #C19A6B; /* Camel untuk footer */
+  color: #FFFFF0;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+  font-size: 0.9em;
+}
+
+/* Media query untuk responsivitas di layar laptop (maksimal 1200px) */
+@media (max-width: 1200px) {
+  .section-container {
+    padding: 40px 15px;
+  }
+  
+  .kelompok-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* Media query untuk tablet (maksimal 768px) */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column; /* Nav vertikal */
+    gap: 10px;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .kelompok-grid {
+    grid-template-columns: 1fr; /* Satu kolom */
+  }
+  
+  .content-wrapper {
+    flex-direction: column; /* Vertikal untuk laporan */
+  }
+  
+  .pdf-container, .content-desc {
+    flex: none;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 2em;
+  }
+  
+  .section-title {
+    font-size: 2em;
+  }
+}
+
+/* Media query untuk mobile (maksimal 480px) */
+@media (max-width: 480px) {
+  .hero-overlay h1 {
+    font-size: 1.5em;
+  }
+  
+  .section-title {
+    font-size: 1.5em;
+  }
+  
+  .kelompok-card {
+    margin: 0 10px;
+  }
+}
