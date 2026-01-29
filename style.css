@@ -322,6 +322,11 @@ footer p {
   font-size: 0.9em;
 }
 
+/* Styling untuk class center-text yang ditambahkan di HTML untuk center text */
+.center-text {
+  text-align: center;
+}
+
 /* Media query untuk responsivitas di layar laptop (maksimal 1200px) */
 @media (max-width: 1200px) {
   .section-container {
