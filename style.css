@@ -1,317 +1,233 @@
-/* =========================================
-   1. RESET & VARIABEL (PENGATURAN DASAR)
-   ========================================= */
-
-/* Mengatur variabel warna agar mudah diganti di satu tempat */
+/* --- Root Variables: Menjaga konsistensi warna sesuai permintaan --- */
 :root {
-  --warna-utama: #c19a6b;      /* Warna Camel (Coklat Emas) untuk aksen */
-  --warna-utama-gelap: #a07e54; /* Versi lebih gelap untuk efek hover */
-  --warna-bg-ivory: #fdfbf7;   /* Warna Ivory (Gading) untuk latar belakang utama */
-  --warna-teks: #4a4a4a;       /* Abu-abu gelap untuk teks agar nyaman dibaca */
-  --warna-putih: #ffffff;      /* Putih murni untuk kartu konten */
-  --bayangan: 0 4px 15px rgba(0,0,0,0.1); /* Efek bayangan halus */
+  --ivory: #FFFFF0;
+  --camel: #C19A6B;
+  --dark-camel: #8E6B46;
+  --pompom-yellow: #F9E076; /* Kuning aksen untuk Pompompurin */
+  --text-dark: #3E362E;
+  --white: #ffffff;
+  --neo-shadow: 8px 8px 0px 0px rgba(123, 63, 0, 0.2); /* Shadow khas Neo-Brutalism */
 }
 
-/* Reset dasar untuk menghilangkan margin bawaan browser */
+/* --- Global Setup --- */
 * {
-  margin: 0;                   /* Hapus jarak luar bawaan */
-  padding: 0;                  /* Hapus jarak dalam bawaan */
-  box-sizing: border-box;      /* Pastikan padding tidak menambah lebar elemen */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Pengaturan scroll agar halus saat diklik link navigasi */
-html {
-  scroll-behavior: smooth;     /* Efek sliding halus saat pindah section */
-}
-
-/* Pengaturan tipografi dasar */
 body {
-  font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins sesuai link HTML */
-  background-color: var(--warna-bg-ivory); /* Latar belakang dominan Ivory */
-  color: var(--warna-teks);    /* Warna teks default */
-  line-height: 1.6;            /* Jarak antar baris teks agar rapi */
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--ivory);
+  color: var(--text-dark);
+  overflow-x: hidden;
 }
 
-/* =========================================
-   2. BAGIAN NAVIGASI (HEADER)
-   ========================================= */
-
+/* --- Navigasi Modern --- */
 header {
-  position: fixed;             /* Menu tetap menempel di atas saat discroll */
-  top: 0;                      /* Posisi paling atas */
-  width: 100%;                 /* Lebar penuh */
-  background-color: var(--warna-putih); /* Latar menu putih bersih */
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Bayangan tipis di bawah menu */
-  z-index: 1000;               /* Pastikan menu selalu di atas konten lain */
-  padding: 1rem 5%;            /* Jarak dalam (atas-bawah 1rem, kiri-kanan 5%) */
+  background: var(--white);
+  padding: 15px 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 4px solid var(--camel); /* Garis tegas Neo-Brutalism */
 }
 
 nav {
-  display: flex;               /* Menggunakan Flexbox untuk tata letak */
-  justify-content: space-between; /* Logo di kiri, Menu di kanan */
-  align-items: center;         /* Posisi vertikal rata tengah */
-  max-width: 1200px;           /* Batas lebar maksimal konten agar tidak terlalu melebar */
-  margin: 0 auto;              /* Posisi nav rata tengah layar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
-  font-size: 1.5rem;           /* Ukuran font logo */
-  font-weight: 700;            /* Ketebalan font tebal */
-  color: var(--warna-teks);    /* Warna teks logo */
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--dark-camel);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.logo span {
-  color: var(--warna-utama);   /* Kata 'Tiga' diberi warna Camel */
+/* Sentuhan Pompompurin di Logo: Bulat dan Berwarna */
+.logo::before {
+  content: '';
+  width: 25px;
+  height: 20px;
+  background: var(--pompom-yellow);
+  border-radius: 50% 50% 45% 45%;
+  border: 2px solid var(--dark-camel);
 }
 
 .nav-links {
-  list-style: none;            /* Hilangkan titik bullet pada list */
-  display: flex;               /* Jejerkan menu secara horizontal */
-  gap: 2rem;                   /* Jarak antar menu */
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
 .nav-links a {
-  text-decoration: none;       /* Hilangkan garis bawah link */
-  color: var(--warna-teks);    /* Warna link */
-  font-weight: 500;            /* Ketebalan font sedang */
-  transition: 0.3s;            /* Animasi halus saat berubah warna */
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
-  color: var(--warna-utama);   /* Ubah warna jadi Camel saat mouse di atasnya */
+  background: var(--pompom-yellow);
+  color: var(--dark-camel);
 }
 
-/* =========================================
-   3. BAGIAN HERO (BERANDA)
-   ========================================= */
-
+/* --- Hero Section: Organic Shapes --- */
 .hero-kelompok {
-  height: 100vh;               /* Tinggi memenuhi 1 layar laptop penuh */
-  background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); /* Placeholder gambar background kantor/modern */
-  background-size: cover;      /* Gambar menutupi seluruh area */
-  background-position: center; /* Fokus gambar di tengah */
-  position: relative;          /* Agar overlay bisa diposisikan absolut di dalamnya */
-  display: flex;               /* Flexbox untuk menengahkan konten */
-  align-items: center;         /* Tengah secara vertikal */
-  justify-content: center;     /* Tengah secara horizontal */
-  text-align: center;          /* Teks rata tengah */
-  color: var(--warna-putih);   /* Teks berwarna putih agar kontras */
-  margin-top: 60px;            /* Memberi jarak karena menu fix di atas */
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--camel);
+  /* Bentuk Organik Lengkung */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  color: var(--white);
+  position: relative;
 }
 
-/* Lapisan gelap di atas gambar agar tulisan terbaca */
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5); /* Hitam transparan (50%) */
-  width: 100%;                 /* Lebar penuh */
-  height: 100%;                /* Tinggi penuh */
-  display: flex;               /* Flexbox lagi untuk isi overlay */
-  flex-direction: column;      /* Susunan atas ke bawah */
-  justify-content: center;     /* Tengah vertikal */
-  align-items: center;         /* Tengah horizontal */
-  padding: 20px;               /* Jarak aman sisi-sisi */
+/* Hiasan Puding Pompompurin di Hero */
+.hero-kelompok::after {
+  content: '🍮';
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  font-size: 4rem;
+  opacity: 0.3;
+  transform: rotate(15deg);
 }
 
 .hero-overlay h1 {
-  font-size: 3.5rem;           /* Ukuran judul besar */
-  margin: 10px 0;              /* Jarak atas bawah judul */
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Bayangan teks agar tajam */
+  font-size: clamp(3rem, 8vw, 5rem);
+  text-shadow: 4px 4px 0px var(--dark-camel);
+  margin-bottom: 15px;
 }
 
-.hero-overlay p {
-  font-size: 1.2rem;           /* Ukuran deskripsi */
-  font-weight: 300;            /* Font tipis elegan */
-}
-
-/* Gaya Tombol (Button) */
 .btn-cek {
-  display: inline-block;       /* Agar padding berfungsi */
-  background-color: var(--warna-utama); /* Warna tombol Camel */
-  color: var(--warna-putih);   /* Teks putih */
-  padding: 12px 30px;          /* Ukuran tombol (tebal dan lebar) */
-  border-radius: 50px;         /* Sudut membulat (pil) */
-  text-decoration: none;       /* Hilangkan garis bawah */
-  font-weight: 600;            /* Teks tebal */
-  transition: transform 0.3s, background 0.3s; /* Animasi gerak dan warna */
-  border: 2px solid var(--warna-utama); /* Garis tepi */
+  background: var(--white);
+  color: var(--dark-camel);
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: 800;
+  border: 3px solid var(--dark-camel);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0px var(--dark-camel); /* Neo-Brutalism Shadow */
+  transition: 0.2s;
+  display: inline-block;
 }
 
 .btn-cek:hover {
-  background-color: transparent; /* Background jadi transparan saat hover */
-  color: var(--warna-utama);     /* Teks berubah jadi warna Camel */
-  border-color: var(--warna-utama); /* Border tetap Camel (jika background gelap) atau Putih */
-  /* Koreksi untuk background gelap hero: */
-  background-color: var(--warna-utama-gelap);
-  color: white;
-  transform: translateY(-3px);   /* Efek tombol naik sedikit */
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px var(--dark-camel);
+  background: var(--pompom-yellow);
 }
 
-/* =========================================
-   4. LAYOUT UMUM (SECTION)
-   ========================================= */
-
-.section-container {
-  padding: 5rem 5%;            /* Jarak dalam section (atas-bawah luas) */
-}
-
-.container {
-  max-width: 1200px;           /* Lebar maksimal konten agar rapi di tengah */
-  margin: 0 auto;              /* Rata tengah */
-}
+/* --- Card Anggota: Neo-Brutalism Soft --- */
+.section-container { padding: 80px 5%; }
 
 .section-title {
-  text-align: center;          /* Judul section rata tengah */
-  margin-bottom: 3rem;         /* Jarak judul ke konten di bawahnya */
-  font-size: 2rem;             /* Ukuran judul */
-  color: var(--warna-utama);   /* Warna judul Camel */
-  text-transform: uppercase;   /* Huruf kapital semua */
-  letter-spacing: 2px;         /* Jarak antar huruf */
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+  color: var(--dark-camel);
 }
 
-/* Background selang-seling */
-.bg-light { background-color: var(--warna-bg-ivory); }
-.bg-white { background-color: var(--warna-putih); }
-
-/* =========================================
-   5. BAGIAN ANGGOTA (GRID SYSTEM)
-   ========================================= */
-
 .kelompok-grid {
-  display: grid;               /* Menggunakan CSS Grid */
-  /* Responsif: Kolom otomatis menyesuaikan, minimal lebar 280px */
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;                   /* Jarak antar kartu */
+  gap: 35px;
 }
 
 .kelompok-card {
-  background: var(--warna-putih); /* Latar kartu putih */
-  border-radius: 15px;         /* Sudut kartu membulat */
-  overflow: hidden;            /* Agar gambar tidak keluar dari sudut bulat */
-  box-shadow: var(--bayangan); /* Beri bayangan */
-  text-decoration: none;       /* Hilangkan garis bawah link */
-  color: inherit;              /* Warisi warna teks induk */
-  transition: transform 0.3s;  /* Animasi saat kartu disentuh */
-  display: flex;               /* Agar layout dalam kartu rapi */
-  flex-direction: column;      /* Susun gambar lalu teks ke bawah */
+  background: var(--white);
+  border: 3px solid var(--dark-camel);
+  border-radius: 30px; /* Sisi yang sangat bulat agar "cute" */
+  padding: 12px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: var(--neo-shadow);
+  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
 }
 
+/* Hiasan Telinga Pompompurin di atas kartu saat hover */
 .kelompok-card:hover {
-  transform: translateY(-10px); /* Kartu naik ke atas saat di-hover */
-}
-
-.card-img {
-  height: 250px;               /* Tinggi area gambar tetap */
-  overflow: hidden;            /* Sembunyikan sisa gambar jika terlalu besar */
+  transform: translateY(-10px);
+  border-color: var(--pompom-yellow);
+  box-shadow: 10px 10px 0px var(--pompom-yellow);
 }
 
 .card-img img {
-  width: 100%;                 /* Lebar gambar 100% container */
-  height: 100%;                /* Tinggi gambar 100% container */
-  object-fit: cover;           /* Potong gambar agar pas tanpa gepeng */
-  transition: transform 0.5s;  /* Animasi zoom gambar */
-}
-
-.kelompok-card:hover .card-img img {
-  transform: scale(1.1);       /* Gambar membesar sedikit saat hover */
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 2px solid #eee;
 }
 
 .card-info {
-  padding: 1.5rem;             /* Jarak dalam teks kartu */
-  text-align: center;          /* Teks rata tengah */
-  background-color: var(--warna-putih);
-}
-
-.card-info h3 {
-  font-size: 1.1rem;           /* Ukuran nama */
-  margin-bottom: 0.5rem;       /* Jarak ke absen */
-  color: var(--warna-teks);
-}
-
-.card-info p {
-  color: var(--warna-utama);   /* Warna absen Camel */
-  font-weight: 600;            /* Tebal */
-}
-
-/* =========================================
-   6. BAGIAN LAPORAN & VIDEO
-   ========================================= */
-
-/* Laporan */
-.content-wrapper {
-  display: flex;               /* Jejerkan PDF dan Teks */
-  gap: 2rem;                   /* Jarak antar elemen */
-  align-items: center;         /* Rata tengah vertikal */
-  flex-wrap: wrap;             /* Bungkus ke bawah jika layar kecil */
-}
-
-.pdf-container {
-  flex: 1;                     /* Ambil sisa ruang */
-  min-width: 300px;            /* Lebar minimal */
-  height: 400px;               /* Tinggi PDF viewer */
-  border: 2px solid #eee;      /* Bingkai tipis */
-  border-radius: 10px;         /* Sudut membulat */
-  overflow: hidden;            /* Rapikan sudut */
-}
-
-.content-desc {
-  flex: 1;                     /* Ambil sisa ruang seimbang dengan PDF */
   padding: 20px;
-}
-
-/* Video */
-.video-wrapper {
-  max-width: 800px;            /* Batasi lebar video agar tidak terlalu besar */
-  margin: 0 auto;              /* Rata tengah */
-}
-
-.video-container {
-  position: relative;          /* Relatif untuk rasio aspek */
-  padding-bottom: 56.25%;      /* Rasio 16:9 (Tinggi / Lebar * 100) */
-  height: 0;
-  overflow: hidden;
-  border-radius: 15px;         /* Sudut video membulat */
-  box-shadow: var(--bayangan);
-}
-
-.video-container iframe {
-  position: absolute;          /* Kunci posisi */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-desc {
-  margin-top: 20px;
   text-align: center;
 }
 
-/* =========================================
-   7. FOOTER & RESPONSIVE (MEDIA QUERY)
-   ========================================= */
-
-footer {
-  background-color: var(--warna-utama); /* Background Camel */
-  color: var(--warna-putih);   /* Teks Putih */
-  text-align: center;          /* Rata tengah */
-  padding: 1.5rem;             /* Jarak atas bawah */
-  font-size: 0.9rem;
+.card-info h3 {
+  font-size: 1.1rem;
+  color: var(--dark-camel);
 }
 
-/* Tampilan Ponsel (Layar < 768px) */
+/* --- PDF & Video (Organic Wrapper) --- */
+.content-wrapper, .video-wrapper {
+  background: var(--white);
+  border: 3px solid var(--dark-camel);
+  padding: 15px;
+  border-radius: 40px 10px 40px 10px; /* Bentuk organik asimetris */
+  box-shadow: var(--neo-shadow);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pdf-container, .video-container {
+  height: 480px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/* --- Footer --- */
+footer {
+  background: var(--dark-camel);
+  color: var(--ivory);
+  padding: 50px 20px;
+  text-align: center;
+  margin-top: 50px;
+  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* --- Dekorasi Tambahan Pompompurin --- */
+/* Topi Baret di sudut halaman */
+body::before {
+  content: '';
+  position: fixed;
+  top: 100px;
+  left: -20px;
+  width: 60px;
+  height: 40px;
+  background: var(--dark-camel); /* Warna cokelat baret */
+  border-radius: 50% 50% 10px 10px;
+  z-index: -1;
+  opacity: 0.2;
+  transform: rotate(-20deg);
+}
+
+/* --- Responsif --- */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;             /* Sembunyikan menu di HP (bisa diganti hamburger menu nanti) */
-  }
-  
-  .hero-overlay h1 {
-    font-size: 2.5rem;         /* Perkecil judul hero */
-  }
-  
-  .content-wrapper {
-    flex-direction: column;    /* Tumpuk konten laporan ke bawah */
-  }
-  
-  .section-container {
-    padding: 3rem 5%;          /* Kurangi padding section */
-  }
+  .hero-overlay h1 { font-size: 2.5rem; }
+  .nav-links { display: none; }
 }
