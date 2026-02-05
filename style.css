@@ -1,12 +1,13 @@
-/* --- Root Variables: Menjaga konsistensi warna sesuai permintaan --- */
+/* --- Root Variables: Palette Sejarah Klasik --- */
 :root {
-  --ivory: #FFFFF0;
-  --camel: #C19A6B;
-  --dark-camel: #8E6B46;
-  --pompom-yellow: #F9E076; /* Kuning aksen untuk Pompompurin */
-  --text-dark: #3E362E;
+  --ivory: #FDF5E6;       /* Old Lace/Kertas Tua */
+  --camel: #C19A6B;       /* Warna Kulit/Peralatan Arkeologi */
+  --sepia: #704214;       /* Cokelat Tua Tinta Klasik */
+  --pompom-gold: #FFD700; /* Emas harta karun (aksen Pompompurin) */
+  --text-dark: #2C241D;
   --white: #ffffff;
-  --neo-shadow: 8px 8px 0px 0px rgba(123, 63, 0, 0.2); /* Shadow khas Neo-Brutalism */
+  /* Neo-Brutalism dengan bayangan lebih tegas seperti ukiran batu */
+  --stone-shadow: 10px 10px 0px 0px #C19A6B; 
 }
 
 /* --- Global Setup --- */
@@ -19,18 +20,19 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--ivory);
+  background-image: radial-gradient(#C19A6B 0.5px, transparent 0.5px); /* Efek bintik kertas tua */
+  background-size: 20px 20px;
   color: var(--text-dark);
-  overflow-x: hidden;
 }
 
-/* --- Navigasi Modern --- */
+/* --- Navigasi: Seperti Pita Dokumen --- */
 header {
   background: var(--white);
-  padding: 15px 5%;
+  padding: 20px 5%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 4px solid var(--camel); /* Garis tegas Neo-Brutalism */
+  border-bottom: 6px double var(--sepia); /* Garis ganda klasik */
 }
 
 nav {
@@ -44,20 +46,17 @@ nav {
 .logo {
   font-weight: 800;
   font-size: 1.4rem;
-  color: var(--dark-camel);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  letter-spacing: 1px;
+  color: var(--sepia);
+  text-transform: uppercase;
 }
 
-/* Sentuhan Pompompurin di Logo: Bulat dan Berwarna */
-.logo::before {
-  content: '';
-  width: 25px;
-  height: 20px;
-  background: var(--pompom-yellow);
-  border-radius: 50% 50% 45% 45%;
-  border: 2px solid var(--dark-camel);
+.logo span {
+  color: var(--camel);
+  border: 2px solid var(--sepia);
+  padding: 0 10px;
+  margin-left: 5px;
+  border-radius: 5px;
 }
 
 .nav-links {
@@ -68,166 +67,157 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-dark);
+  color: var(--sepia);
   font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
   transition: 0.3s;
 }
 
 .nav-links a:hover {
-  background: var(--pompom-yellow);
-  color: var(--dark-camel);
+  background: var(--pompom-gold);
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
-/* --- Hero Section: Organic Shapes --- */
+/* --- Hero Section: Old Map Style --- */
 .hero-kelompok {
-  height: 85vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: var(--camel);
-  /* Bentuk Organik Lengkung */
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-  color: var(--white);
-  position: relative;
-}
-
-/* Hiasan Puding Pompompurin di Hero */
-.hero-kelompok::after {
-  content: '🍮';
-  position: absolute;
-  top: 20%;
-  right: 10%;
-  font-size: 4rem;
-  opacity: 0.3;
-  transform: rotate(15deg);
+  background-color: var(--sepia);
+  background-image: linear-gradient(rgba(44, 36, 29, 0.7), rgba(44, 36, 29, 0.7)), 
+                    url('https://www.transparenttextures.com/patterns/old-map.png'); /* Tekstur Peta Kuno */
+  color: var(--ivory);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); /* Potongan miring Neo-Brutalism */
 }
 
 .hero-overlay h1 {
-  font-size: clamp(3rem, 8vw, 5rem);
-  text-shadow: 4px 4px 0px var(--dark-camel);
-  margin-bottom: 15px;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 600;
+  border: 4px solid var(--ivory);
+  padding: 20px 40px;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .btn-cek {
-  background: var(--white);
-  color: var(--dark-camel);
-  padding: 15px 35px;
+  background: var(--pompom-gold);
+  color: var(--sepia);
+  padding: 15px 40px;
   text-decoration: none;
-  font-weight: 800;
-  border: 3px solid var(--dark-camel);
-  border-radius: 12px;
-  box-shadow: 5px 5px 0px var(--dark-camel); /* Neo-Brutalism Shadow */
+  font-weight: 900;
+  border: 3px solid var(--sepia);
+  box-shadow: 6px 6px 0px var(--sepia);
   transition: 0.2s;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .btn-cek:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 8px 8px 0px var(--dark-camel);
-  background: var(--pompom-yellow);
+  transform: translate(-3px, -3px);
+  box-shadow: 10px 10px 0px var(--sepia);
 }
 
-/* --- Card Anggota: Neo-Brutalism Soft --- */
+/* --- Card Anggota: Archival Box Style --- */
 .section-container { padding: 80px 5%; }
 
 .section-title {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 60px;
-  color: var(--dark-camel);
+  color: var(--sepia);
+  text-transform: uppercase;
+  text-decoration: underline wavy var(--camel); /* Garis gelombang */
 }
 
 .kelompok-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
 }
 
 .kelompok-card {
-  background: var(--white);
-  border: 3px solid var(--dark-camel);
-  border-radius: 30px; /* Sisi yang sangat bulat agar "cute" */
-  padding: 12px;
+  background: #FFF9E3; /* Warna krem Pompompurin */
+  border: 3px solid var(--sepia);
+  border-radius: 15px;
+  padding: 15px;
   text-decoration: none;
   color: inherit;
-  box-shadow: var(--neo-shadow);
-  transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--stone-shadow);
+  transition: 0.3s;
   position: relative;
 }
 
-/* Hiasan Telinga Pompompurin di atas kartu saat hover */
+/* Dekorasi Topi Pompompurin Arkeolog di atas kartu */
+.kelompok-card::before {
+  content: '🎩'; 
+  position: absolute;
+  top: -25px;
+  right: 10px;
+  font-size: 2rem;
+  transform: rotate(15deg);
+  opacity: 0;
+  transition: 0.3s;
+}
+
 .kelompok-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--pompom-yellow);
-  box-shadow: 10px 10px 0px var(--pompom-yellow);
+  transform: scale(1.02);
+  background: var(--white);
+}
+
+.kelompok-card:hover::before {
+  opacity: 1;
 }
 
 .card-img img {
   width: 100%;
-  height: 320px;
+  height: 350px;
   object-fit: cover;
-  border-radius: 20px;
-  border: 2px solid #eee;
+  filter: sepia(60%) contrast(110%); /* Efek foto sejarah kuno */
+  border-radius: 10px;
+  border: 2px solid var(--sepia);
 }
 
 .card-info {
-  padding: 20px;
-  text-align: center;
+  padding: 20px 0;
+  text-align: left;
 }
 
 .card-info h3 {
-  font-size: 1.1rem;
-  color: var(--dark-camel);
+  font-size: 1.2rem;
+  color: var(--sepia);
+  border-bottom: 2px solid var(--camel);
 }
 
-/* --- PDF & Video (Organic Wrapper) --- */
+/* --- Laporan & Video: Musem Display --- */
 .content-wrapper, .video-wrapper {
   background: var(--white);
-  border: 3px solid var(--dark-camel);
-  padding: 15px;
-  border-radius: 40px 10px 40px 10px; /* Bentuk organik asimetris */
-  box-shadow: var(--neo-shadow);
-  max-width: 900px;
-  margin: 0 auto;
+  border: 10px solid var(--camel);
+  border-image: repeating-linear-gradient(45deg, var(--camel), var(--camel) 10px, var(--sepia) 10px, var(--sepia) 20px) 10;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: var(--stone-shadow);
 }
 
 .pdf-container, .video-container {
-  height: 480px;
-  border-radius: 25px;
-  overflow: hidden;
+  height: 500px;
+  background: #000;
 }
 
-/* --- Footer --- */
+/* --- Footer: Ink & Quill --- */
 footer {
-  background: var(--dark-camel);
+  background: var(--sepia);
   color: var(--ivory);
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
-  margin-top: 50px;
-  clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-}
-
-/* --- Dekorasi Tambahan Pompompurin --- */
-/* Topi Baret di sudut halaman */
-body::before {
-  content: '';
-  position: fixed;
-  top: 100px;
-  left: -20px;
-  width: 60px;
-  height: 40px;
-  background: var(--dark-camel); /* Warna cokelat baret */
-  border-radius: 50% 50% 10px 10px;
-  z-index: -1;
-  opacity: 0.2;
-  transform: rotate(-20deg);
+  border-top: 10px solid var(--pompom-gold);
 }
 
 /* --- Responsif --- */
 @media (max-width: 768px) {
-  .hero-overlay h1 { font-size: 2.5rem; }
+  .hero-overlay h1 { font-size: 2.2rem; padding: 10px; }
   .nav-links { display: none; }
 }
